@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"math"
 	"runtime"
-	"wtf/goroutine"
+	"wtf/interfaces"
 	// "time"
 )
 
@@ -82,6 +82,9 @@ func main() {
 	// fmt.Println(time.Now().UTC())
 
 
-	fmt.Println("Running goroutine code.")
-	goroutine.GoRoutineMain()
+	// fmt.Println("Running goroutine code.")
+	// goroutine.GoRoutineMain()
+
+	fmt.Println("Running interfaces code.")
+	interfaces.Interfaces()
 }

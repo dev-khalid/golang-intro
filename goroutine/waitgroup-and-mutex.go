@@ -79,6 +79,11 @@ func WaitGroup() {
 
 	// This is the total time it could have taken if we did it without goroutines.
 	totalTime := time.Duration(0)
+
+	// NOTE: If I had to use mutex here, instead of putting it into the SocialMediaPost struct, then I would have to do this:
+	// mu := sync.Mutex{} and pass it to the FanWentCrazy function, and from there I would have to pass it to the IncrementLikes function. or I could use it before the 
+	// post.IncrementLikes() call.
+	
 	for i := 0; i < 500000; i++ {
 		wg.Add(1)
 		payload := &FanWentCrazyPayload{
