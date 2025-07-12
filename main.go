@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"wtf/pointer"
 	"math"
 	"runtime"
+	"wtf/goroutine"
 	// "time"
 )
 
@@ -59,10 +59,11 @@ func switchExample() {
 
 func main() {
 	// Run the pointer demo automatically
-	fmt.Println("=== Running Pointer Demo ===")
-	pointer.RunPointerDemo()
-	fmt.Println("=== End of Pointer Demo ===")
+	// fmt.Println("=== Running Pointer Demo ===")
+	// pointer.RunPointerDemo()
+	// fmt.Println("=== End of Pointer Demo ===")
 	
+
 	// fmt.Println("Hello There!", rand.Intn(10))
 	// fmt.Println(math.Pi)
 
@@ -80,4 +81,7 @@ func main() {
 	// defer fmt.Println("Goodbye!")
 	// fmt.Println(time.Now().UTC())
 
+
+	fmt.Println("Running goroutine code.")
+	goroutine.GoRoutineMain()
 }
