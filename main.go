@@ -4,7 +4,9 @@ import (
 	"fmt"
 	"math"
 	"runtime"
-	"wtf/interfaces"
+
+	// "github.com/dev-khalid/golang-intro/interfaces"
+	"github.com/dev-khalid/golang-intro/http"
 	// "time"
 )
 
@@ -85,6 +87,8 @@ func main() {
 	// fmt.Println("Running goroutine code.")
 	// goroutine.GoRoutineMain()
 
-	fmt.Println("Running interfaces code.")
-	interfaces.Interfaces()
+	// fmt.Println("Running interfaces code.")
+	// interfaces.Interfaces()
+
+	server.StartServer()
 }

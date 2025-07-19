@@ -1,0 +1,35 @@
+## This VTL template handles both query string defaults and the request body.
+
+
+## Allow unknown query string
+
+#foreach($paramName in $input.params().querystring.keySet())
+  #set($context.requestOverride.querystring[$paramName] = $input.params().querystring.get($paramName))
+#end
+
+## PART 1: Set default query string parameters for the backend request.
+## API Gateway will add these to the Endpoint URL if the client does not provide them.
+#if(!$input.params('page') || $input.params('page') == "")
+  #set($context.requestOverride.querystring.page = "59")
+#end
+
+#if(!$input.params('pageSize') || $input.params('pageSize') == "")
+  #set($context.requestOverride.querystring.pageSize = "23")
+#end
+
+
+## PART 2: Construct the JSON request body.
+## This JSON is the payload that will be sent to your backend.
+{
+  "searchQuery": "$util.escapeJavaScript($input.path('$.search'))",
+  "filters": {
+    #foreach($key in $input.path('$.filters').keySet())
+      "$key": "$util.escapeJavaScript($input.path('$.filters.get($key)'))"
+    #end
+  },
+  "pagination": {
+    "pageSize": #if($input.params('pageSize') != '') $input.params('pageSize') #else 20 #end,
+    "pageNumber": #if($input.params('page') != '') $input.params('page') #else 1 #end
+  }
+  "whatIsThis": $input.params()
+}
