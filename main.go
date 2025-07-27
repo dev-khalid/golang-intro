@@ -6,8 +6,9 @@ import (
 	"runtime"
 
 	// "github.com/dev-khalid/golang-intro/interfaces"
-	"github.com/dev-khalid/golang-intro/http"
+
 	// "time"
+	_ "github.com/dev-khalid/golang-intro/http"
 )
 
 func CountAndPrint(x, y int) (int, string) {
@@ -90,5 +91,5 @@ func main() {
 	// fmt.Println("Running interfaces code.")
 	// interfaces.Interfaces()
 
-	server.StartServer()
+	// server.ServerV2()
 }
